@@ -74,20 +74,4 @@ This repo is a bolierplate for a Node/React app that utlizes docker, travis ci, 
 <h2>Step One: Clone this repo</h2>
 <h2>Step Two: Deploy an Elastic Beanstalk Instance on AWS</h2>
 <h2>Step Three: Add your intances creds into the .travis.yml</h2>
-<p>before_install:
-  - docker build -t ayodev/docker-react -f Dockerfile.dev .
-
-script:
-  - docker run -e CI=true ayodev/docker-react npm run test -- --coverage
-
-deploy:
-  provider: elasticbeanstalk
-  region: "your-region-1"
-  app: "your-app"
-  env: "your-apps-env"
-  bucket_name: "elasticbeanstalk-us-east-2-your-bucket-id"
-  bucket_path: "your-bucket-path"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY</p>
+<h2>Step Four: Push changes to Github to auto build on travis and deploy to AWS</h2>
