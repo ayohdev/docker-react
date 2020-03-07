@@ -66,3 +66,28 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### App Description 
+
+This repo is a bolierplate for a Node/React app that utlizes docker, travis ci, and AWS Elastick Beanstalk. Follow the steps below in order to replicate. This repo requires you to have a Travis CI account linked to your own git repo, an AWS account, and some basic knowledge of docker.
+
+<h2>Step One: Clone this repo</h2>
+<h2>Step Two: Deploy an Elastic Beanstalk Instance on AWS</h2>
+<h2>Step Three: Add your intances creds into the .travis.yml</h2>
+<p>before_install:
+  - docker build -t ayodev/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ayodev/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "your-region-1"
+  app: "your-app"
+  env: "your-apps-env"
+  bucket_name: "elasticbeanstalk-us-east-2-your-bucket-id"
+  bucket_path: "your-bucket-path"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY</p>
